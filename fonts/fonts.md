@@ -1,7 +1,7 @@
 # Modulbit typography
 
 ## Primary font 
-Main font used accross the website and UI.
+Main font used across the website and UI.
 
 - Font: Inter
 - Weights: 400 (Regular), 500 (Medium), 600 (SemiBold), 700 (Bold)
