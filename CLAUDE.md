@@ -4,15 +4,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 # ModulBit
 
-ModulBit is a small startup building Tara, an AI assistant designed for elderly users
+ModulBit is a small startup building Jana, an AI assistant designed for elderly users
 who struggle with modern technology. Our target group is often overlooked, but we believe
 they deserve tools that are simple, respectful, and actually helpful.
 
-## Tara
+## Jana
 
-Tara is an AI-powered assistant that helps elderly users with everyday tech tasks –
+Jana is an AI-powered assistant that helps elderly users with everyday tech tasks –
 things like writing an email, printing a document, or navigating a website. The core
-principle is that Tara should feel like asking a patient, knowledgeable friend for help,
+principle is that Jana should feel like asking a patient, knowledgeable friend for help,
 not like using a complicated app.
 
 ### Key UX principles
@@ -29,7 +29,7 @@ not like using a complicated app.
 - We are based in the EU and comply with GDPR
 
 ## Infrastructure
-- All services run on our own infrastructure (tara.modulbit.eu, api.modulbit.eu)
+- All services run on our own infrastructure (jana.modulbit.eu, api.modulbit.eu)
 - Code is hosted on our self-hosted Forgejo instance at git.modulbit.eu
 - Secrets are managed via Bitwarden Secrets Manager
 
@@ -41,11 +41,11 @@ This directory is not itself a git repository — each subdirectory is a separat
 
 | Repo | What it is |
 |---|---|
-| `modulbit-api` | Go backend API (the working API behind Tara's features, e.g. AI email writing) |
+| `modulbit-api` | Go backend API (the working API behind Jana's features, e.g. AI email writing) |
 | `modulbit-website` | Next.js marketing/company website |
-| `tara-backend` | Tara product backend — **placeholder, README only so far** |
-| `tara-frontend` | Tara product frontend — **placeholder, README only so far** |
-| `tara-tracking` | Tracking issues for Tara — **placeholder, README only so far** |
+| `jana-backend` | Jana product backend — **placeholder, README only so far** |
+| `jana-frontend` | Jana product frontend — **placeholder, README only so far** |
+| `jana-tracking` | Tracking issues for Jana — **placeholder, README only so far** |
 | `ansible` | Infrastructure-as-code: playbooks/roles that bootstrap servers and deploy all services |
 | `internal-docs` | Internal how-to docs (git, ssh, gpg, servers, services, team policies) |
 | `decisions-public` / `decisions-internal` | ADR-style decision records (public vs. private) |
@@ -54,7 +54,7 @@ This directory is not itself a git repository — each subdirectory is a separat
 
 ## How the repos relate
 
-- `modulbit-api` is the HTTP API (Clerk auth, OpenRouter for LLM calls, Postgres + Redis). The Tara frontend (`tara-frontend`, not yet started) will consume it. Routes are versioned under `/v3/`.
+- `modulbit-api` is the HTTP API (Clerk auth, OpenRouter for LLM calls, Postgres + Redis). The Jana frontend (`jana-frontend`, not yet started) will consume it. Routes are versioned under `/v3/`.
 - `ansible` deploys everything: each subfolder of `ansible/roles/docker-compose/` is one deployed service (currently `authentik`, `gatus`, `pomerium`, `vaultwarden`, `modulbit-website`; `_starter` is the template for new services). The repo is mirrored to the control host every 15 minutes; CI builds Docker images that these roles pull from the Forgejo registry at `git.modulbit.eu`.
 - `internal-docs/services/` documents the same services that `ansible` deploys.
 - Decisions are proposed as issues (templates in `.github/ISSUE_TEMPLATE/`), then recorded as numbered ADRs in `decisions/<year>/<month>/NNNN-slug.md` with a detached GPG signature (`.md.asc`) alongside. Template: `decisions/templates/adr.md`.
